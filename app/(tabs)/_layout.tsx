@@ -1,15 +1,16 @@
-import { Tabs } from "expo-router";
-import React from "react";
-import { Platform } from "react-native";
-
 import { HapticTab } from "@/components/HapticTab";
-import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { ThemeColors } from "@/constants/Colors";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Tabs } from "expo-router";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Platform } from "react-native";
 import { useTheme } from "react-native-paper";
 
 export default function TabLayout() {
   const { colors } = useTheme<ThemeColors>();
+  const { t } = useTranslation();
 
   return (
     <Tabs
@@ -30,18 +31,18 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: t("home"),
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <MaterialIcons name={"home-filled"} size={24} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="favourite/index"
         options={{
-          title: "Explore",
+          title: t("favourite"),
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <MaterialIcons name="favorite" size={24} color={color} />
           ),
         }}
       />

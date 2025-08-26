@@ -1,3 +1,9 @@
 {
-  "translation": {}
+  "translation": {
+    "home": "Home",
+    "favourite": "Favourite",
+    "searchProducts": "Search products...",
+    "noProductsFound": "No products found.",
+    "noResultsMatchYourSearch": "No results match your search."
+  }
 }

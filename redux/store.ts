@@ -1,16 +1,18 @@
-import storage from "@react-native-async-storage/async-storage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
+import productsSlice from "./slice/productsSlice";
 import themeSlice from "./slice/themeSlice";
 
 const rootReducer = combineReducers({
   theme: themeSlice,
+  products: productsSlice,
 });
 
 const persistConfig = {
   key: "root",
-  storage: storage,
-  whitelist: ["theme"],
+  storage: AsyncStorage,
+  whitelist: ["theme", "products"],
   blacklist: [],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -27,4 +29,5 @@ const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 const persistor = persistStore(store);
 
+export type AppDispatch = typeof store.dispatch;
 export { persistor, store };

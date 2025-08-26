@@ -8,6 +8,7 @@ import { PaperProvider } from "react-native-paper";
 import "react-native-reanimated";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+import "../language/i18n";
 
 const ThemeApp: React.FC = () => {
   const appTheme = useAppTheme();
