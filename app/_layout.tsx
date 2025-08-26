@@ -5,11 +5,20 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { LogBox } from "react-native";
 import { PaperProvider } from "react-native-paper";
 import "react-native-reanimated";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import "../language/i18n";
+
+LogBox.ignoreLogs(["Warning: ..."]);
+LogBox.ignoreAllLogs();
+
+// Handled for the show back button, when the page is opened through the deep link
+export const unstable_settings = {
+  initialRouteName: "(tabs)",
+};
 
 const ThemeApp: React.FC = () => {
   const appTheme = useAppTheme();

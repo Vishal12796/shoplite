@@ -4,7 +4,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { ThemeColors } from "@/constants/Colors";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useTheme } from "react-native-paper";
 import {
   moderateScale,
@@ -60,13 +60,16 @@ export default function ProductDetails() {
 
   return (
     <ThemedView style={styles.container}>
-      {state.productDetails ? productDetails() : <DetailsNotFound />}
+      <ScrollView style={styles.scrollContainer}>
+        {state.productDetails ? productDetails() : <DetailsNotFound />}
+      </ScrollView>
     </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16 },
+  container: { flex: 1, paddingHorizontal: moderateScale(16) },
+  scrollContainer: { flex: 1, paddingTop: moderateVerticalScale(12) },
   image: {
     width: "100%",
     height: moderateVerticalScale(200),
@@ -88,6 +91,7 @@ const styles = StyleSheet.create({
     padding: moderateScale(12),
     borderRadius: moderateScale(8),
     alignItems: "center",
+    marginBottom: moderateVerticalScale(20),
   },
   favText: {
     fontSize: 16,
