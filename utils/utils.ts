@@ -4,3 +4,5 @@ export const getNumColumns = (width: number): number => {
 
   return width >= MOBILE_BREAKPOINT ? 2 : 1;
 };
+
+export const DEFAULT_CURRENCY: string = "$";

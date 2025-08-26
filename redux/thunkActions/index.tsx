@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk(
   "app/getProducts",
   async (payload, { rejectWithValue, dispatch }) => {
     const payloadData = {
-      ...payload,
+      ...(typeof payload === "object" && payload !== null ? payload : {}),
       endpoint: Api.products,
       type: ApiType.get,
     };

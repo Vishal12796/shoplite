@@ -1,6 +1,6 @@
 import { ThemeColors } from "@/constants/Colors";
 import { Product } from "@/types/products";
-import { getNumColumns } from "@/utils/utils";
+import { DEFAULT_CURRENCY, getNumColumns } from "@/utils/utils";
 import { router } from "expo-router";
 import React from "react";
 import {
@@ -54,6 +54,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
         {item.name}
       </Text>
       <Text style={[styles.productPrice, { color: colors.text }]}>
+        {DEFAULT_CURRENCY}
         {item.price}
       </Text>
     </TouchableOpacity>

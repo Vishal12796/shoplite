@@ -2,6 +2,7 @@ import { EmptyView } from "@/components/EmptyView";
 import { ImageView } from "@/components/ImageView";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemeColors } from "@/constants/Colors";
+import { DEFAULT_CURRENCY } from "@/utils/utils";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
@@ -29,6 +30,7 @@ export default function ProductDetails() {
             {state.productDetails.description}
           </Text>
           <Text style={[styles.price, { color: colors.text }]}>
+            {DEFAULT_CURRENCY}
             {state.productDetails.price}
           </Text>
           <TouchableOpacity

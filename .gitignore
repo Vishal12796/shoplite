@@ -47,3 +47,7 @@ app-example
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+
+# testing
+/coverage

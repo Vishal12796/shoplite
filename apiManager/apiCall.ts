@@ -5,7 +5,7 @@ const defaultHeader: any = { "Content-Type": "application/json" };
 
 type ApiPayload = {
   headers?: AxiosHeaders;
-  body: any;
+  body?: any;
   type: ApiType;
   endpoint: string;
 };
