@@ -1,6 +1,7 @@
 import { ThemeColors } from "@/constants/Colors";
 import { Product } from "@/types/products";
 import { getNumColumns } from "@/utils/utils";
+import { router } from "expo-router";
 import React from "react";
 import {
   FlatList,
@@ -8,6 +9,7 @@ import {
   Platform,
   RefreshControl,
   StyleSheet,
+  TouchableOpacity,
   useWindowDimensions,
 } from "react-native";
 import { Text, useTheme } from "react-native-paper";
@@ -17,7 +19,6 @@ import {
 } from "react-native-size-matters";
 import { EmptyView } from "./EmptyView";
 import { ImageView } from "./ImageView";
-import { ThemedView } from "./ThemedView";
 
 type ProductsListProps = {
   list: Product[];
@@ -32,10 +33,17 @@ export const ProductsList: React.FC<ProductsListProps> = (props) => {
   const { colors } = useTheme<ThemeColors>();
 
   const renderItem = ({ item, index }: ListRenderItemInfo<Product>) => (
-    <ThemedView
+    <TouchableOpacity
+      onPress={() => {
+        router.navigate(`/product/${item.id}`);
+      }}
       style={[
         styles.productCard,
-        { borderColor: colors.borderColor, shadowColor: colors.shadowColor },
+        {
+          borderColor: colors.borderColor,
+          shadowColor: colors.shadowColor,
+          backgroundColor: colors.background,
+        },
       ]}
     >
       <ImageView uri={item?.image} style={styles.productImage} />
@@ -45,7 +53,7 @@ export const ProductsList: React.FC<ProductsListProps> = (props) => {
       <Text style={[styles.productPrice, { color: colors.text }]}>
         {item.price}
       </Text>
-    </ThemedView>
+    </TouchableOpacity>
   );
 
   return (

@@ -1,12 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
+import favouritesSlice from "./slice/favouritesSlice";
 import productsSlice from "./slice/productsSlice";
 import themeSlice from "./slice/themeSlice";
 
 const rootReducer = combineReducers({
   theme: themeSlice,
   products: productsSlice,
+  favourites: favouritesSlice,
 });
 
 const persistConfig = {

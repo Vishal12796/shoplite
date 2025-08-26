@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { PaperProvider } from "react-native-paper";
 import "react-native-reanimated";
 import { Provider } from "react-redux";
@@ -12,12 +13,20 @@ import "../language/i18n";
 
 const ThemeApp: React.FC = () => {
   const appTheme = useAppTheme();
+  const { t } = useTranslation();
 
   return (
     <PaperProvider theme={appTheme.theme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
+        <Stack.Screen
+          name="product/[id]"
+          options={{
+            title: t("productDetails"),
+            headerBackTitle: t("back"),
+          }}
+        />
       </Stack>
       <StatusBar style="auto" />
     </PaperProvider>

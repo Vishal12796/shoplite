@@ -14,6 +14,7 @@ type CustomColors = MD3Colors & {
   activeBorder: string;
   success: string;
   shadowColor: string;
+  selectedColor: string;
 };
 
 export interface ThemeColors extends Omit<MD3Theme, "colors"> {
@@ -37,6 +38,7 @@ export const LightTheme: ThemeColors = {
     borderColor: "#ddd",
     activeBorder: "#4287f5",
     shadowColor: "#000",
+    selectedColor: "#007AFF",
   },
 };
 
@@ -57,5 +59,6 @@ export const DarkTheme: ThemeColors = {
     borderColor: "#ddd",
     activeBorder: "#545454",
     shadowColor: "rgba(255, 255, 255, 0.1)",
+    selectedColor: "#007AFF",
   },
 };

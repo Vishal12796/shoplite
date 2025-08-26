@@ -4,6 +4,11 @@
     "favourite": "Favourite",
     "searchProducts": "Search products...",
     "noProductsFound": "No products found.",
-    "noResultsMatchYourSearch": "No results match your search."
+    "noResultsMatchYourSearch": "No results match your search.",
+    "productDetails": "Product Details",
+    "back": "Back",
+    "removeFromFavourites": "★ Remove from Favorites",
+    "addToFavourites": "☆ Add to Favorites",
+    "productNotFound": "Product details not found"
   }
 }
