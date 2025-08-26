@@ -10,6 +10,8 @@
     "removeFromFavourites": "★ Remove from Favorites",
     "addToFavourites": "☆ Add to Favorites",
     "productNotFound": "Product details not found",
-    "noFavouriteProducts": "You haven’t saved any favorites. Mark products you love to see them here."
+    "noFavouriteProducts": "You haven’t saved any favorites. Mark products you love to see them here.",
+    "goToHomeScreen": "Go to home screen!",
+    "thisScreenDoesNotExist": "This screen does not exist."
   }
 }
