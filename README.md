@@ -137,6 +137,10 @@ This e-commerce mobile application provides a simple and intuitive shopping expe
 
 - [Deep Link Demo](https://drive.google.com/file/d/1raTFJfCrhr6hXVE1ARD5MhdiTBLtKCgQ/view?usp=sharing)
 
+## Favorites Persistence Demo (Data Saved Across Restarts)
+
+- [Persistence Demo](https://drive.google.com/file/d/1OdxOmdneW7B9NyB2D0XtWQ51h5KnAv1i/view?usp=sharing)
+
 ## To Test Deep Link
 
 Follow the steps below to test deep links across Android, iOS, and Web:
@@ -167,6 +171,3 @@ http://localhost:8081/product/3
 ```
 > These commands allow you to directly open specific product pages using deep linking in your development environment.
 
-## Favorites Persistence Demo (Data Saved Across Restarts)
-
-- [Persistence Demo](https://drive.google.com/file/d/1OdxOmdneW7B9NyB2D0XtWQ51h5KnAv1i/view?usp=sharing)
