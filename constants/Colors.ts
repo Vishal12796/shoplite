@@ -1,7 +1,7 @@
 import { MD3DarkTheme, MD3LightTheme, MD3Theme } from "react-native-paper";
 import { MD3Colors } from "react-native-paper/lib/typescript/types";
 
-const tintColorLight = "#0a7ea4";
+const tintColorLight = "#007AFF";
 const tintColorDark = "#fff";
 
 type CustomColors = MD3Colors & {

@@ -19,6 +19,7 @@ import {
 } from "react-native-size-matters";
 import { EmptyView } from "./EmptyView";
 import { ImageView } from "./ImageView";
+import { ThemedView } from "./ThemedView";
 
 type ProductsListProps = {
   list: Product[];
@@ -66,12 +67,13 @@ export const ProductsList: React.FC<ProductsListProps> = ({
       keyExtractor={(item) => item.id}
       numColumns={numColumns}
       key={numColumns}
-      contentContainerStyle={styles.listContent}
+      style={styles.listContent}
       columnWrapperStyle={numColumns > 1 ? styles.columnWrapper : undefined}
       ListEmptyComponent={<EmptyView text={props.emptyMsg} />}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={props?.onRefresh} />
       }
+      ListFooterComponent={<ThemedView style={styles.footer} />}
     />
   );
 };
@@ -121,5 +123,8 @@ export const styles = StyleSheet.create({
   },
   listContent: {
     paddingBottom: moderateVerticalScale(12),
+  },
+  footer: {
+    height: moderateVerticalScale(36),
   },
 });
