@@ -11,7 +11,7 @@ export const useProductDetails = (id: string) => {
   );
   // Select favourite status
   const isFavourite = useSelector((state: RootState) =>
-    state.favourites.favourites.find((p) => p.id === id),
+    state.favourites.favouritesList.find((p) => p.id === id),
   );
 
   // Toggle favourite

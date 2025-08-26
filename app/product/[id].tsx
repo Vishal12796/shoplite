@@ -6,6 +6,10 @@ import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { useTheme } from "react-native-paper";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 import { useProductDetails } from "./useProductDetails";
 
 export default function ProductDetails() {
@@ -13,7 +17,7 @@ export default function ProductDetails() {
   const state = useProductDetails(id!);
   const { colors } = useTheme<ThemeColors>();
 
-  const ProductDetails = () => {
+  const productDetails = () => {
     return (
       state.productDetails && (
         <ThemedView>
@@ -28,6 +32,7 @@ export default function ProductDetails() {
             {state.productDetails.price}
           </Text>
           <TouchableOpacity
+            activeOpacity={0.7}
             style={[
               styles.favButton,
               {
@@ -55,7 +60,7 @@ export default function ProductDetails() {
 
   return (
     <ThemedView style={styles.container}>
-      {state.productDetails ? <ProductDetails /> : <DetailsNotFound />}
+      {state.productDetails ? productDetails() : <DetailsNotFound />}
     </ThemedView>
   );
 }
@@ -64,16 +69,24 @@ const styles = StyleSheet.create({
   container: { flex: 1, padding: 16 },
   image: {
     width: "100%",
-    height: 250,
-    borderRadius: 12,
-    marginBottom: 16,
+    height: moderateVerticalScale(200),
+    borderRadius: moderateScale(12),
+    marginBottom: moderateVerticalScale(16),
   },
-  name: { fontSize: 24, fontWeight: "bold", marginBottom: 8 },
-  description: { fontSize: 16, marginBottom: 12 },
-  price: { fontSize: 20, fontWeight: "600", marginBottom: 20 },
+  name: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: moderateVerticalScale(8),
+  },
+  description: { fontSize: 16, marginBottom: moderateVerticalScale(12) },
+  price: {
+    fontSize: 20,
+    fontWeight: "600",
+    marginBottom: moderateVerticalScale(20),
+  },
   favButton: {
-    padding: 12,
-    borderRadius: 8,
+    padding: moderateScale(12),
+    borderRadius: moderateScale(8),
     alignItems: "center",
   },
   favText: {

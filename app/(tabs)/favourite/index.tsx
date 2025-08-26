@@ -1,21 +1,21 @@
+import { ProductsList } from "@/components/ProductsList";
 import { Screen } from "@/components/Screen";
-import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import React from "react";
-import { StyleSheet } from "react-native";
+import { styles } from "./styles";
+import { useFavourite } from "./useFavourite";
 
-export default function TabTwoScreen() {
+export default function FavouriteProductsScreen() {
+  const state = useFavourite();
+
   return (
     <Screen>
       <ThemedView style={styles.container}>
-        <ThemedText type="title">Explore</ThemedText>
+        <ProductsList
+          list={state.favouriteProductsList}
+          emptyMsg={state.t("noFavouriteProducts")}
+        />
       </ThemedView>
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

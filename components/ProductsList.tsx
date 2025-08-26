@@ -24,10 +24,13 @@ type ProductsListProps = {
   list: Product[];
   emptyMsg: string;
   onRefresh?: () => void;
-  refreshing: boolean;
+  refreshing?: boolean;
 };
 
-export const ProductsList: React.FC<ProductsListProps> = (props) => {
+export const ProductsList: React.FC<ProductsListProps> = ({
+  refreshing = false,
+  ...props
+}) => {
   const { width } = useWindowDimensions();
   const numColumns = getNumColumns(width);
   const { colors } = useTheme<ThemeColors>();
@@ -67,10 +70,7 @@ export const ProductsList: React.FC<ProductsListProps> = (props) => {
       columnWrapperStyle={numColumns > 1 ? styles.columnWrapper : undefined}
       ListEmptyComponent={<EmptyView text={props.emptyMsg} />}
       refreshControl={
-        <RefreshControl
-          refreshing={props?.refreshing}
-          onRefresh={props?.onRefresh}
-        />
+        <RefreshControl refreshing={refreshing} onRefresh={props?.onRefresh} />
       }
     />
   );
